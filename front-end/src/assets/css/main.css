@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+NP+Hmong:wght@500&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Noto Serif NP Hmong', serif;
+}

@@ -1,0 +1,36 @@
+.svgIcon{
+    color: blue;
+}
+li.subMenuIcon{
+    display: flex;
+}
+.subMenuContainer{
+    background-color: #f0f0f0;
+}
+.subMenuContainer span{
+    font-size: 14px;
+    padding: 0;
+}
+.subMenuContainer svg{
+    margin: 0 10px;
+    font-size: 20px;
+    padding: 0;
+}
+.mainDashLogo{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 18px;
+}
+
+/* Create Sidebar Css */
+.createSidebar{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.createSidebar svg{
+    font-size: 35px;
+    margin-top: 10px;
+}
