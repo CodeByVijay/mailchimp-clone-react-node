@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Cookies } from 'react-cookie';
 import axios from 'axios';
-import jwt_decode from "jwt-decode";
 import { Link, useNavigate } from 'react-router-dom';
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -138,10 +137,6 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 const Sidebar = ({ children }) => {
     // Logout Funtionality
-    const [name, setName] = useState('');
-    const [token, setToken] = useState('');
-    const [expire, setExpire] = useState('');
-    const [users, setUsers] = useState([]);
     const [refToken, setRefToken] = useState([]);
 
     const navigate = useNavigate();
@@ -175,6 +170,7 @@ const Sidebar = ({ children }) => {
 
     const theme = useTheme();
     const [open, setOpen] = React.useState(true);
+
 
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -431,7 +427,6 @@ const Sidebar = ({ children }) => {
         },
 
     ]
-
     // const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
     return (
@@ -452,96 +447,99 @@ const Sidebar = ({ children }) => {
                         <MenuIcon />
                     </IconButton>
 
-                    <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        component="a"
-                        sx={{
-                            mr: 2,
-                            display: { xs: 'none', md: 'flex' },
-                            fontFamily: 'monospace',
-                            fontWeight: 700,
-                            letterSpacing: '.3rem',
-                            color: 'inherit',
-                            textDecoration: 'none',
-                        }}
-                    >
-                        LOGO
-                    </Typography>
+                    {window.location.pathname === '/admin/create-email' ? (<>
 
+                    </>) : (
+                        <>
+                            <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+                            <Typography
+                                variant="h6"
+                                noWrap
+                                component="a"
+                                sx={{
+                                    mr: 2,
+                                    display: { xs: 'none', md: 'flex' },
+                                    fontFamily: 'monospace',
+                                    fontWeight: 700,
+                                    letterSpacing: '.3rem',
+                                    color: 'inherit',
+                                    textDecoration: 'none',
+                                }}
+                            >
+                                Home
+                            </Typography>
 
-                    <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-                    <Typography
-                        variant="h5"
-                        noWrap
-                        component="a"
-                        href=""
-                        sx={{
-                            mr: 2,
-                            display: { xs: 'flex', md: 'none' },
-                            flexGrow: 1,
-                            fontFamily: 'monospace',
-                            fontWeight: 700,
-                            letterSpacing: '.3rem',
-                            color: 'inherit',
-                            textDecoration: 'none',
-                        }}
-                    >
-                        LOGO
-                    </Typography>
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                            <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
 
-                    </Box>
+                            <Typography
+                                variant="h5"
+                                noWrap
+                                component="a"
+                                href=""
+                                sx={{
+                                    mr: 2,
+                                    display: { xs: 'flex', md: 'none' },
+                                    flexGrow: 1,
+                                    fontFamily: 'monospace',
+                                    fontWeight: 700,
+                                    letterSpacing: '.3rem',
+                                    color: 'inherit',
+                                    textDecoration: 'none',
+                                }}
+                            >
+                                Home
+                            </Typography>
 
-                    <Box sx={{ flexGrow: 0 }}>
-                        <Tooltip title="Account Logout">
-                            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="Profile Image" src="/static/images/avatar/2.jpg" />
-                            </IconButton>
-                        </Tooltip>
-                        <Menu
-                            sx={{ mt: '45px' }}
-                            id="menu-appbar"
-                            anchorEl={anchorElUser}
-                            anchorOrigin={{
-                                vertical: 'top',
-                                horizontal: 'right',
-                            }}
-                            keepMounted
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'right',
-                            }}
-                            open={Boolean(anchorElUser)}
-                            onClose={handleCloseUserMenu}
-                        >
-                            {/* {settings.map((setting) => (
+                            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}></Box>
+
+                            <Box sx={{ flexGrow: 0 }}>
+                                <Tooltip title="Account Logout">
+                                    <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                                        <Avatar alt="Profile Image" src="/static/images/avatar/2.jpg" />
+                                    </IconButton>
+                                </Tooltip>
+                                <Menu
+                                    sx={{ mt: '45px' }}
+                                    id="menu-appbar"
+                                    anchorEl={anchorElUser}
+                                    anchorOrigin={{
+                                        vertical: 'top',
+                                        horizontal: 'right',
+                                    }}
+                                    keepMounted
+                                    transformOrigin={{
+                                        vertical: 'top',
+                                        horizontal: 'right',
+                                    }}
+                                    open={Boolean(anchorElUser)}
+                                    onClose={handleCloseUserMenu}
+                                >
+                                    {/* {settings.map((setting) => (
                                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
                                     <Typography textAlign="center">{setting}</Typography>
                                 </MenuItem>
                             ))} */}
 
 
-                            <MenuItem onClick={handleCloseUserMenu}>
-                                <Typography onClick={handleLogout} textAlign="center">Logout</Typography>
-                            </MenuItem>
-
-
-                        </Menu>
-                    </Box>
-
+                                    <MenuItem onClick={handleCloseUserMenu}>
+                                        <Typography onClick={handleLogout} textAlign="center">Logout</Typography>
+                                    </MenuItem>
+                                </Menu>
+                            </Box>
+                        </>
+                    )}
                 </Toolbar>
             </AppBar>
+
             <Drawer variant="permanent" open={open}>
-                  <div className="mainDashLogo">
-                 <Link to="../admin/dashboard" title='Dashboard'> <Logo/></Link>
-                <DrawerHeader>
-                    <IconButton onClick={handleDrawerClose}>
-                        {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-                    </IconButton>
-                </DrawerHeader>
-                  </div>
+                <div className="mainDashLogo">
+                    <Link to="../admin/dashboard" title='Dashboard'> <Logo /></Link>
+                    <DrawerHeader>
+                        <IconButton onClick={handleDrawerClose}>
+                            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+                        </IconButton>
+                    </DrawerHeader>
+                </div>
                 <Divider />
                 <List>
                     {menuItems.map((menu, index) => {
@@ -579,7 +577,6 @@ const Sidebar = ({ children }) => {
                                 </ListItem>
                                 <Divider />
                             </>
-
                         )
                     })}
                 </List>

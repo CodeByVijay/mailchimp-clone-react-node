@@ -1,7 +1,37 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+NP+Hmong:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@1,600&display=swap');
 
-* {
+*{
     margin: 0px;
     padding: 0px;
-    font-family: 'Noto Serif NP Hmong', serif;
+    font-family: 'Zilla Slab', serif !important;
+}
+.createHome{
+    text-align: center;
+}
+.createHome h4{
+    font-family: 'Zilla Slab', serif;
+    margin: 10px 0;
+}
+.createHome .headLine{
+    position: relative;
+    top: 5%;
+    padding: 5px 10px;
+    color: black;
+    background-color: yellow;
+    border-radius:20px;
+}
+.createHome .boxes{
+    margin: 100px 0 !important;
+}
+.accordionTitle{
+    color: lightseagreen;
+    font-size: 25px !important;
+    font-weight: 700 !important;
+
+}
+.accordian1{
+    margin: 20px !important;
+}
+.accordian1 p{
+    margin: 20px 5px !important;
 }

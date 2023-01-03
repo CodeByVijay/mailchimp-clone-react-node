@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Cookies } from 'react-cookie';
 import axios from 'axios';
-import { Link,useNavigate } from 'react-router-dom';
+import { Link,useNavigate,useLocation } from 'react-router-dom';
 import { styled, useTheme } from '@mui/material/styles';
 import MuiDrawer from '@mui/material/Drawer';
 import MuiAppBar from '@mui/material/AppBar';
@@ -124,6 +124,7 @@ const Sidebar = ({ children }) => {
     const [refToken, setRefToken] = useState([]);
 
     const navigate = useNavigate();
+    const pathname = useLocation().pathname
     const cookies = new Cookies();
 
     useEffect(() => {
@@ -197,7 +198,8 @@ const Sidebar = ({ children }) => {
                     path: "/admin/create/email/plain-text",
                     name: "Plain Text",
                     icon: <SubjectIcon fontSize="small" />
-                },{
+                },
+                {
                     path: "/admin/create/email/templetes",
                     name: "Templetes",
                     icon: <DraftsIcon fontSize="small" />
@@ -442,7 +444,7 @@ const Sidebar = ({ children }) => {
                         return (
                             <>
 
-                                <ListItem onClick={clickMenu} key={menu.name} disablePadding sx={{ display: 'block' }}>
+                                <ListItem onClick={clickMenu} key={menu.name} disablePadding className={`${pathname === menu.path ? 'active' : ''}`} sx={{ display: 'block' }}>
                                     <ListItemButton
                                         sx={{
                                             minHeight: 48,

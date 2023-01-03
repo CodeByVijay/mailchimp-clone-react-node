@@ -21,7 +21,15 @@ li.subMenuIcon{
     justify-content: space-between;
     padding-left: 18px;
 }
-
+li:hover{
+    transition: 0.6s;
+    background-color: rgb(202, 255, 215);
+    color:black;
+    border-radius: 20px;
+}
+li.active span{
+    font-weight: 900;
+}
 /* Create Sidebar Css */
 .createSidebar{
     margin: 0;
@@ -33,4 +41,12 @@ li.subMenuIcon{
 .createSidebar svg{
     font-size: 35px;
     margin-top: 10px;
+}
+.textField{
+    position: absolute;
+    top: 30%;
+    left: 40%;
+    width: 600px;
+    margin: auto;
+    padding: 10px;
 }

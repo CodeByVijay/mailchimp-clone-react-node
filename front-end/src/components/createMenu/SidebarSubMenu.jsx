@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {useNavigate } from 'react-router-dom';
+import {useNavigate,useLocation } from 'react-router-dom';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -9,10 +9,11 @@ import { ArrowDropDown, ArrowRight } from '@mui/icons-material';
 import { Divider } from '@mui/material';
 
 const SidebarSubMenu = ({ menu, open }) => {
+    const pathname = useLocation().pathname
     const navigate = useNavigate()
     const [isMenuOpen, setisMenuOpen] = useState(false);
-    const [activeClass, setActiveClass] = useState(false);
     const toggleMenu = () => setisMenuOpen(!isMenuOpen);
+    
     return (
         <>
             <List>
@@ -47,7 +48,7 @@ const SidebarSubMenu = ({ menu, open }) => {
                         menu.subMenu.map((submenu, index) => {
                             return (
                                 <>
-                                    <ListItem key={submenu.name} disablePadding sx={{ display: 'block' }} onClick={toggleMenu}>
+                                    <ListItem className={`${pathname === submenu.path ? 'active' : ''}`} key={submenu.name} disablePadding sx={{ display: 'block' }} onClick={toggleMenu}>
                                         <ListItemButton
                                             sx={{
                                                 minHeight: 48,
