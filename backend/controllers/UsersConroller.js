@@ -4,7 +4,6 @@ import jwt from "jsonwebtoken";
 import db from "../config/Database.js";
 import { Op } from "sequelize";
 import { LocalStorage } from "node-localstorage";
-import store from "store2";
 const localStorage = new LocalStorage('./scratch');
 
 export const getUsers = async (req, res) => {

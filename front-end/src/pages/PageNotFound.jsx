@@ -19,7 +19,7 @@ const PageNotFound = () => {
         <Sidebar />
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
           <DrawerHeader />
-        <h1>Page Not Found......</h1>
+          <h1>Page Not Found......</h1>
         </Box>
       </Box>
     </>

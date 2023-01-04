@@ -1,34 +1,27 @@
 import React, { useState } from 'react'
 import { Box } from '@mui/system';
-import { styled, useTheme } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import Sidebar from '../components/Sidebar'
-import { Button, Container, Grid, TextField, Typography } from '@mui/material';
-import Modal from '@mui/material/Modal';
+import { Button, Card, Container, Grid, TextField, Typography } from '@mui/material';
+import { Modal, Button as ButtonBoot } from 'react-bootstrap'
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
 
 const CreateEmail = () => {
-
-  const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 4,
-    zIndex: 999
-  };
 
   const [title, setTitle] = useState('Untitled');
   const [flag, setFlag] = useState(false);
   const [addContact, setaddContact] = useState(false);
   const [addFrom, setaddFrom] = useState(false);
   const [subject, setSubject] = useState(false);
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
+  const [isShow, invokeModal] = React.useState(true)
+  const handleOpen = () => {
+    invokeModal(true)
+  }
+  const handleCloseModel = () => {
+    invokeModal(false)
+  }
 
   const handleTitleInput = (e) => {
     const val = e.target.value;
@@ -147,23 +140,66 @@ const CreateEmail = () => {
                 <Typography variant='h3'>Content</Typography>
                 <p>Design the content for your email.</p>
               </Grid>
-              <Grid xs={12} lg={3} md={3} className=""><Button variant='contained' onClick={()=>handleOpen()}>Design Email</Button></Grid>
+              <Grid xs={12} lg={3} md={3} className=""><Button variant='contained' onClick={() => handleOpen()}>Design Email</Button></Grid>
 
-              <Modal
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-              >
-                <Box sx={style}>
-                  <span>&times;</span>
-                  <Typography id="modal-modal-title" variant="h6" component="h2">
-                    Text in a modal
-                  </Typography>
-                  <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                    Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-                  </Typography>
-                </Box>
+              <Modal show={isShow} style={{ zIndex: 9999999 }}>
+                <Modal.Header closeButton onClick={handleCloseModel}>
+                  <Modal.Title>Choose an email builder</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                  <Grid container>
+                    <Grid xs={5} m={2}>
+                      <Card sx={{ maxWidth: 345 }}>
+                        <CardMedia
+                          sx={{ height: 140 }}
+                          image="https://www.sender.net/wp-content/uploads/2019/03/b032-What-Is-Email-Content-Definition-Types-Examples-small-1024x658.webp"
+                          title="green iguana"
+                        />
+                        <CardContent>
+                          <Typography gutterBottom variant="h5" component="div">
+                            New Email Builder
+                          </Typography>
+                          <Typography variant="body2" color="text.secondary">
+                            Lizards are a widespread group of squamate reptiles, with over 6,000
+                            species, ranging across all continents except Antarctica
+                          </Typography>
+                        </CardContent>
+                        <CardActions>
+                        <Button variant='contained' size="small">Select the New Builder</Button>
+                        </CardActions>
+                      </Card>
+                    </Grid>
+                    <Grid xs={5} m={2}>
+                      <Card sx={{ maxWidth: 345 }}>
+                        <CardMedia
+                          sx={{ height: 140 }}
+                          image="https://www.sender.net/wp-content/uploads/2019/03/b032-What-Is-Email-Content-Definition-Types-Examples-small-1024x658.webp"
+                          title="green iguana"
+                        />
+                        <CardContent>
+                          <Typography gutterBottom variant="h5" component="div">
+                            Classic Email Builder
+                          </Typography>
+                          <Typography variant="body2" color="text.secondary">
+                            Lizards are a widespread group of squamate reptiles, with over 6,000
+                            species, ranging across all continents except Antarctica
+                          </Typography>
+                        </CardContent>
+                        <CardActions>
+                          <Button variant='contained' size="small">Select the Classic Builder</Button>
+                        </CardActions>
+                      </Card>
+                    </Grid>
+                  </Grid>
+                </Modal.Body>
+                {/* <Modal.Footer>
+                  <ButtonBoot variant="danger" onClick={handleCloseModel}>
+                    Close
+                  </ButtonBoot>
+                  <ButtonBoot variant="dark" onClick={handleCloseModel}>
+                    Store
+                  </ButtonBoot>
+                </Modal.Footer> */}
               </Modal>
 
             </Grid>

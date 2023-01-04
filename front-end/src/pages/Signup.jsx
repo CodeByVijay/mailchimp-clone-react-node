@@ -68,6 +68,7 @@ function Signup() {
   function handleCheckbox() {
     setcheckBox(!checkBox)
   }
+ 
 
   const handleSignUp = async (e) => {
     e.preventDefault();

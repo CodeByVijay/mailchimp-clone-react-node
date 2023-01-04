@@ -224,41 +224,36 @@ const Sidebar = ({ children }) => {
         },
         {
             path: "",
-            name: "Audience",
+            name: "Subscribers",
             icon: <Groups3Icon />,
             subMenu: [
                 {
-                    path: "/admin/audience/audience-dashboard",
-                    name: "Audience Dashboard",
+                    path: "/admin/subscribers/subscribers-dashboard",
+                    name: "Subscriber Dashboard",
                     icon: <GridViewIcon />
                 },
                 {
-                    path: "/admin/audience/all-contacts",
-                    name: "All contacts",
-                    icon: <ContactsIcon />
-                },
-                {
-                    path: "/admin/audience/signup-forms",
+                    path: "/admin/subscribers/signup-forms",
                     name: "Signup forms",
                     icon: <DynamicFormIcon />
                 },
                 {
-                    path: "/admin/audience/tags",
+                    path: "/admin/subscribers/tags",
                     name: "Tags",
                     icon: <StyleIcon />
                 },
                 {
-                    path: "/admin/audience/segments",
+                    path: "/admin/subscribers/segments",
                     name: "Segments",
                     icon: <SegmentIcon />
                 },
                 {
-                    path: "/admin/audience/surveys",
+                    path: "/admin/subscribers/surveys",
                     name: "Surveys",
                     icon: <PollIcon />
                 },
                 {
-                    path: "/admin/audience/inbox",
+                    path: "/admin/subscribers/inbox",
                     name: "Inbox",
                     icon: <AllInboxIcon />
                 },

@@ -28,7 +28,8 @@ li:hover{
     border-radius: 20px;
 }
 li.active span{
-    font-weight: 900;
+    font-weight: 900 !important;
+    color: blue;
 }
 /* Create Sidebar Css */
 .createSidebar{
