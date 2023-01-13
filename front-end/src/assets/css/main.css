@@ -35,3 +35,8 @@
 .accordian1 p{
     margin: 20px 5px !important;
 }
+
+.ck-editor__editable {
+    min-height: 200px;
+    max-height: 400px;
+}

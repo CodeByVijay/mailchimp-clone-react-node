@@ -165,7 +165,7 @@ const CreateEmail = () => {
                           </Typography>
                         </CardContent>
                         <CardActions>
-                        <Button variant='contained' size="small">Select the New Builder</Button>
+                          <Button variant='contained' size="small">Select the New Builder</Button>
                         </CardActions>
                       </Card>
                     </Grid>
